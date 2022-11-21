@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+
+<div class="container" *ngIf="member">
+
+    <h2 class="pb-4 display-4">Member Details</h2>
+
+    <div class="pb-4">
+
+        <div class="row">
+            <div class="col">
+                <b>First Name</b>
+                <p>{{member.firstName}}</p>
+    
+            </div>
+            <div class="col">
+                <b>Last Name</b>
+                <p>{{member.lastName}}</p>
+            </div>
+        </div>
+    
+        <div class="row my-3">
+            <div class="col">
+                <b>Email Address</b>
+                <p>{{member.email}}</p>
+    
+            </div>
+            <div class="col">
+                <b>Phone Number</b>
+                <p>{{member.phoneNumber}}</p>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <b>Address Line 1</b>
+                <p>{{member.addressLine1}}</p>
+    
+            </div>
+            <div class="col">
+                <b>Address Line 2</b>
+                <p>{{member.addressLine2}}</p>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <b>Town / City</b>
+                <p>{{member.town}}</p>
+    
+            </div>
+            <div class="col">
+                <b>County</b>
+                <p>{{member.county}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <h3 class="pb-4" style="font-weight: 300;">{{member.firstName}}'s attendance for year: {{yearLabel}}</h3>
+
+    <div [formGroup]="yearAttendanceForm" class="row pb-4">
+        <div class="col-md-6">
+            <select (change)="yearChanged()" formControlName="yearControl" 
+            class="custom-select d-block w-100" id="year" required [value]>
+                <option *ngFor="let y of years">{{y}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="button" (click)="openAttendClassDialog()" class="btn btn-success btn-md">Attend New Class</button> 
+        </div>
+        <div class="col-md-4">
+            <b>Total Amount Paid</b>
+            <p>€{{totalPaid}}</p>
+        </div>
+      </div>
+
+    <div class="mat-elevation-z8">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Class Name</th>
+                <th scope="col">Class Date</th>
+                <th scope="col">Amount Paid</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let class of memberClasses">
+                <td>{{class.className}}</td>
+                <td>{{class.classDate}}</td>
+                <td>€{{class.amountPaid}}</td>
+          </table>
+    </div>
+
+
+</div>

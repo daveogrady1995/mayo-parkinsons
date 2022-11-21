@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Attend Class</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="attendClassForm" class="needs-validation">
+    <div class="form-group">
+        <label for="className">Class Name</label>
+        <select class="custom-select d-block w-100" id="county" formControlName="className" required>
+            <option>Physiotherapy</option>
+            <option>Dance Class	</option>
+        </select>
+        <div *ngIf="!attendClassForm.get('className').valid && attendClassForm.get('className').touched" class="text-danger">
+            Class name is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="classDate">Class Date</label>
+        <input type="date" id="classDate" class="form-control" formControlName="classDate" required>
+        <div *ngIf="!attendClassForm.get('classDate').valid && attendClassForm.get('classDate').touched" class="text-danger">
+            Class date is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="amountPaid">Amount Paid</label>
+        <input type="number" id="amountPaid" class="form-control" formControlName="amountPaid" required>
+        <div *ngIf="!attendClassForm.get('amountPaid').valid && attendClassForm.get('amountPaid').touched" class="text-danger">
+            Amount paid is required
+        </div>
+    </div>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn" mat-dialog-close>Cancel</button>
+  <button class="btn btn-success" (click)="submit()" mat-button cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

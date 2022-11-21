@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <img class="mayo-logo" src="../assets/rsz_parkinsons-ireland-logo.png" alt=""/>
+    <a class="navbar-brand" (click)="dashboard()">Mayo Parkinsons</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="newMember()">New Member <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="nav-link" (click)="logout()">Log out <i class="fas fa-sign-out-alt"></i></a>
+      </form>
+    </div>
+  </nav>
